@@ -70,11 +70,11 @@ public class ArabicLightStemmer {
 
   /*public CharArraySet getValidatedStemList() {
     return validatedStemList;
-  }
+  }*/
 
   public void setValidatedStemList(CharArraySet validatedStemList) {
     this.validatedStemList = validatedStemList;
-  }*/
+  }
   
   public static final char prefixes[][] = {
     ("" + ALEF + LAM).toCharArray(), 
@@ -701,7 +701,7 @@ public class ArabicLightStemmer {
         }
       }
       //Rule 7
-      if (len == 4 && s[0] == ALEF) {			
+      if (len == 4 && s[0] == ALEF) {
         s2 = Arrays.copyOf(s, len);
         delete(s2, 0, len);
         if (validatedStemList.contains(s2, 0, len-1)) {
@@ -746,7 +746,7 @@ public class ArabicLightStemmer {
       if (len == 4 && s[2] == WAW 
         && !(s[3] == HEH || s[3] == ALEF || s[3] == YEH || s[3] == HAMZA)
         && !(s[0] == YEH || s[0] == WAW || s[0] == ALEF || s[0] == TEH) ) {
-          s2 = Arrays.copyOf(s, len);
+    	  s2 = Arrays.copyOf(s, len);
           delete(s2, 2, len);
           if (validatedStemList.contains(s2, 0, len -2)) {
             foundInfixRule = true;

@@ -34,19 +34,19 @@ import org.apache.lucene.analysis.miscellaneous.SetKeywordMarkerFilter;
 public class TestArabicLightStemFilter extends BaseTokenStreamTestCase {
   
   public void testRule1() throws IOException {
-    check("حشائش", "حشيشة");
+    check("حشائش", "حشيشه");
   }    
 
   public void testRule2() throws IOException {
-    check("فوائد", "فائدة");
+    check("فوائد", "فائده");
   }       
   
   public void testRule3() throws IOException {
-    check("وصايا", "وصية");
+    check("وصايا", "وصيه");
   }
   
   public void testRule4() throws IOException {
-    check("دول", "دولة");
+    check("دول", "دوله");
   }
   
   public void testRule5() throws IOException {
@@ -54,7 +54,7 @@ public class TestArabicLightStemFilter extends BaseTokenStreamTestCase {
   }
       
   public void testRule6() throws IOException {
-    check("مدارس", "مدرسة"); 
+    check("مدارس", "مدرسه"); 
   }
   
   public void testRule7() throws IOException {
@@ -62,8 +62,8 @@ public class TestArabicLightStemFilter extends BaseTokenStreamTestCase {
   } 
   
   public void testRule8() throws IOException {
-    check("أجهزة", "جهاز");
-  } 
+    check("اجهزه", "جهاز");
+  }
   
   public void testRule9() throws IOException {
     check("امراض", "مرض");
@@ -94,7 +94,7 @@ public class TestArabicLightStemFilter extends BaseTokenStreamTestCase {
   }
 
   public void testRule16() throws IOException {
-    check("امم", "امة");
+    check("امم", "امه");
   }
   
   public void testRule17() throws IOException {
@@ -104,12 +104,12 @@ public class TestArabicLightStemFilter extends BaseTokenStreamTestCase {
   private void check(final String input, final String expected) throws IOException {
     MockTokenizer tokenStream  = whitespaceMockTokenizer(input);
     CharArraySet set = new CharArraySet(17, true);
-    set.add("حشيشة");
-    set.add("فائدة");
-    set.add("وصية");
-    set.add("دولة");
+    set.add("حشيشه");
+    set.add("فائده");
+    set.add("وصيه");
+    set.add("دوله");
     set.add("سطر");
-    set.add("مدرسة");
+    set.add("مدرسه");
     set.add("حرف");
     set.add("جهاز");
     set.add("مرض");
@@ -119,7 +119,7 @@ public class TestArabicLightStemFilter extends BaseTokenStreamTestCase {
     set.add("كلب");
     set.add("راسم");
     set.add("تقرير");
-    set.add("امة");
+    set.add("امه");
     set.add("اشار");
     ArabicLightStemFilter filter = new ArabicLightStemFilter(tokenStream, set);
     filter.setHighAccuracyRequired(true);

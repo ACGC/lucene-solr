@@ -49,18 +49,7 @@ public class TestArabicFilters extends BaseTokenStreamFactoryTestCase {
     stream = tokenFilterFactory("ArabicStem").create(stream);
     assertTokenStreamContents(stream, new String[] {"ذين", "ملكت", "ايمانكم"});
   }
-  
-  /**
-   * Test ArabicLightStemFilterFactory
-   */
-  public void testLightStemmer() throws Exception {
-    Reader reader = new StringReader("الذين مَلكت أيمانكم");
-    Tokenizer tokenizer = whitespaceMockTokenizer(reader);
-    TokenStream stream = tokenFilterFactory("ArabicNormalization").create(tokenizer);
-    stream = tokenFilterFactory("ArabicLightStem").create(stream);
-    assertTokenStreamContents(stream, new String[] {"ذين", "ملكت", "ايمانكم"});
-  }
-  
+
   /**
    * Test PersianCharFilterFactory
    */
